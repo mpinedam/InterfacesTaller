@@ -45,9 +45,11 @@ public class InterfazHuesped extends JFrame implements ActionListener{
 		String seleccionado = funcionalidadele.toString();
 		if (seleccionado == "Realizar Reserva") {
 			new InterfazReserva();
+			setVisible(false);
 		}
 		if (seleccionado == "Solicitar Servicio") {
-			new InterfazReserva();
+			new InterfazServicios();
+			setVisible(false);
 		}
 			
 		

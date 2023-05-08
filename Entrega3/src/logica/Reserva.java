@@ -78,12 +78,13 @@ public class Reserva {
 		
 		listaReservas.put(random, reserva);
 		
+		
 		return reserva;
 	}
 	
 	
-	public static HashMap<String, String> consultarReserva(String string){
-		HashMap<String, String> reservaBuscada = listaReservas.get(string);
+	public static HashMap<String, String> consultarReserva(String reserva){
+		HashMap<String, String> reservaBuscada = listaReservas.get(Integer.parseInt(reserva));
 		return reservaBuscada;
 	}
 	

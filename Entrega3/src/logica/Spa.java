@@ -37,17 +37,16 @@ public class Spa {
 		spa=plan1;
 	}
 	
-	public static void mostrarMasaje()
+	public static List<Object> mostrarMasaje()
 	{
-		for (int i=0; i<spa.size(); i++)
-		{
-			keys=spa.keySet();
-			values=spa.values();
-			List<Integer>values1=new ArrayList(values);
-			List<String>keys1=new ArrayList(keys);
-		    keysfinal = keys1;
-			System.out.println((i+1)+". "+keys1.get(i)+ " "+ values1.get(i));
-		}	
+		keys=spa.keySet();
+		values=spa.values();
+		List<Integer>values1=new ArrayList(values);
+		List<String>keys1=new ArrayList(keys);	
+		List<Object> resultado=new ArrayList<>();
+		resultado.add(keys1);
+		resultado.add(values1);
+		return resultado;
 	
 	}
 	

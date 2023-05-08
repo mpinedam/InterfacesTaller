@@ -41,7 +41,8 @@ public class InterfazReserva extends JFrame implements ActionListener{
 	private JDateChooser fechaini;
 	private JDateChooser fechafin;
 	private JTextField reserva;
-	
+	private JButton home;
+	private JButton huespedesBoton;
 	
 	
 	
@@ -54,6 +55,8 @@ public class InterfazReserva extends JFrame implements ActionListener{
 	private static final String CONSULTARRRESERVA = "CONSULTARRRESERVA";
 
 	private static final String REALIZAR_RESERVA = "REALIZAR_RESERVA";
+	private static final String HOME = "HOME";
+	private static final String HUESPEDES = "HUESPEDES";
 
 	public InterfazReserva() {
 	
@@ -193,6 +196,22 @@ public class InterfazReserva extends JFrame implements ActionListener{
 		
 		JLabel imagen2 = new JLabel(new ImageIcon("./imagenes/reserva2.png"), JLabel.CENTER);
 		consultarReserva.add(imagen2);
+			
+		//Home
+
+		home = new JButton("Volver al Inicio");
+		home.addActionListener(this);
+		home.setActionCommand(HOME);
+		home.setPreferredSize(new Dimension(30,30));
+		consultarReserva.add(home);
+			
+		//Menuhuesped
+
+		huespedesBoton = new JButton("Volver al Menu de huespedes");
+		huespedesBoton.addActionListener(this);
+		huespedesBoton.setActionCommand(HUESPEDES);
+		huespedesBoton.setPreferredSize(new Dimension(30,30));
+		consultarReserva.add(huespedesBoton);
 	
 	}
 	
@@ -208,9 +227,7 @@ public class InterfazReserva extends JFrame implements ActionListener{
 				
 				
 				String codigoReserva = reserva.get("Numero Reserva");
-				
-				
-				
+
 				String nombre = reserva.get("Nombre: ");
 				
 				String documento = reserva.get("Documento: ");
@@ -222,25 +239,13 @@ public class InterfazReserva extends JFrame implements ActionListener{
 				String huespedesTotales = reserva.get("Huespedes Totales: ");
 				
 				String habitacion1 = reserva.get("Habitacion1: ");
-				String preciohabitacion1 = reserva.get("PrecioHabitacion1: ");
-				
-				
+
 				
 				String habitacion2 = reserva.get("Habitacion2: ");
-				if (habitacion2 != null) {
-				String preciohabitacion2 = reserva.get("PrecioHabitacion2: ");
-				}
 				
 				String habitacion3 = reserva.get("Habitacion3: ");
-				if (habitacion3 != null) {
-				String preciohabitacion3 = reserva.get("PrecioHabitacion3: ");
-				}
-				
 				
 				String habitacion4 = reserva.get("Habitacion4: ");
-				if (habitacion4 != null) {
-				String preciohabitacion4 = reserva.get("PrecioHabitacion4: ");
-				}
 
 				String precio = reserva.get("Precio: ");
 				
@@ -262,7 +267,47 @@ public class InterfazReserva extends JFrame implements ActionListener{
 		if (comando.equals(CONSULTARRRESERVA)) {
 			System.out.println(getReserva());
 			HashMap<String, String> reserva = Reserva.consultarReserva(getReserva());
+			
+
+			
+			String codigoReserva = reserva.get("Numero Reserva");
+
+			String nombre = reserva.get("Nombre: ");
+			
+			String documento = reserva.get("Documento: ");
+			
+			String correo = reserva.get("Correo Electronico: ");
+			
+			String numeroCelular = reserva.get("Numero Celular: ");
+			
+			String huespedesTotales = reserva.get("Huespedes Totales: ");
+			
+			String habitacion1 = reserva.get("Habitacion1: ");
+
+			
+			String habitacion2 = reserva.get("Habitacion2: ");
+			
+			String habitacion3 = reserva.get("Habitacion3: ");
+			
+			String habitacion4 = reserva.get("Habitacion4: ");
+
+			String precio = reserva.get("Precio: ");
+			
+			
+			
+			String imprimirReservafinal = "La reserva ha sido encontrada" +"\nNumero Reserva: "+ codigoReserva +"\nNombre: " + nombre+"\nDocumento: " + documento + "\nCorreo Electronico: " + correo + "\nNumero Celular: " + numeroCelular + "\nHuespedes Totales: " + huespedesTotales + "\nHabitacion 1: " + habitacion1 + "\nHabitacion 2: " + habitacion2 + "\nHabitacion 3: " + habitacion3 + "\nHabitacion 4: " + habitacion4 + "\nPrecio: "+ precio;
+			
+			JOptionPane.showMessageDialog(this, imprimirReservafinal, "RESERVA BUSCADA", 1);
 	}
+		if (comando.equals(HOME)) {
+			new InterfazGeneral();
+			setVisible(false);
+		}
+		
+		if (comando.equals(HUESPEDES)) {
+			new InterfazHuesped();
+			setVisible(false);
+		}
 	
 	}
 	
@@ -270,15 +315,19 @@ public class InterfazReserva extends JFrame implements ActionListener{
 		ArrayList<String> infoHuesped = new ArrayList<String>();
 		String nombrehuesped = nombreh.getText();
 		infoHuesped.add(nombrehuesped);
+		nombreh.setText("");
 		
 		String dochuesped = documentoh.getText();
 		infoHuesped.add(dochuesped);
+		documentoh.setText("");
 		
 		String correohuesped = correoh.getText();
 		infoHuesped.add(correohuesped);
+		correoh.setText("");
 		
 		String celularhuesped = celularh.getText();
 		infoHuesped.add(celularhuesped);
+		celularh.setText("");
 		
 		Object numHuespedes = nHuespedes.getSelectedItem();
 		String numeroHuesdepes = numHuespedes.toString();
@@ -301,6 +350,7 @@ public class InterfazReserva extends JFrame implements ActionListener{
 		String fechaInicial = dateFormat.format(date);
 		infoHuesped.add(fechaInicial);
 		
+		
 		Date dateend = fechafin.getDate();
 		String fechaFinal = dateFormat.format(dateend);
 		infoHuesped.add(fechaFinal);
@@ -317,7 +367,7 @@ public class InterfazReserva extends JFrame implements ActionListener{
 	}
 	
 	
-
+	
 	
 	
 

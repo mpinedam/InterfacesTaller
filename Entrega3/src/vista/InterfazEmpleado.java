@@ -1,5 +1,13 @@
 package vista;
 
-public class InterfazEmpleado {
+import javax.swing.JFrame;
+
+public class InterfazEmpleado extends JFrame{
+	
+	public InterfazEmpleado() {
+		new vistaInventario();
+	}
+	
+	
 
 }

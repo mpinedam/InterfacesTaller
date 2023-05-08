@@ -39,17 +39,16 @@ public class GuiaTuristico {
 		{
 			plan=plan1;
 		}
-		public static void mostrarPlan()
+		public static List<Object> mostrarPlan()
 		{
-			for (int i=0; i<plan.size(); i++)
-			{
-				keys=plan.keySet();
-				values=plan.values();
-				List<Integer>values1=new ArrayList(values);
-				List<String>keys1=new ArrayList(keys);
-				keysfinal = keys1;
-				System.out.println((i+1)+". "+keys1.get(i)+ " "+ values1.get(i));
-			}	
+			keys=plan.keySet();
+			values=plan.values();
+			List<Integer>values1=new ArrayList(values);
+			List<String>keys1=new ArrayList(keys);
+			List<Object> resultado=new ArrayList<>();
+			resultado.add(keys1);
+			resultado.add(values1);
+			return resultado;
 		
 		}
 		public static String asociarNumeroGT(int numero)

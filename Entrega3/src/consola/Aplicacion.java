@@ -74,10 +74,6 @@ public class Aplicacion {
 	private static LoaderTarifa habitaciones = new LoaderTarifa();
 	
 	public static void cargarArchivos() throws IOException {
-				   
-			habitaciones.cargarInformacionInventario
-			("./data/inventario_habitacionestxt.txt");
-				
 
 			}
 	
@@ -97,14 +93,14 @@ public class Aplicacion {
 		return null;	
 	}
 		
-	private static void ejecutarCarga()
+	public static void ejecutarCarga()
 	{
 
 
 		try
 		{
 		   LoaderInfo.cargarArchivo();
-		   LoaderTarifa.cargarInventarioHabitaciones("./data/inventario_habitacionestxt.txt");
+
 		 
 			
 		}

@@ -48,30 +48,29 @@ public class Restaurante {
 		plato_habitacion=plan1;
 	}
 	
-	public static void mostrarPlato_restaurante()
+	public static List<Object> mostrarPlato_restaurante()
 	{
-		for (int i=0; i<plato_restaurante.size(); i++)
-		{
-			keysr=plato_restaurante.keySet();
-			valuesr=plato_restaurante.values();
-			List<Integer>values1=new ArrayList(valuesr);
-			List<String>keys1=new ArrayList(keysr);
-		    keysfinalr = keys1;
-			System.out.println((i+1)+". "+keys1.get(i)+ " "+ values1.get(i));
-		}	
+		keysr=plato_restaurante.keySet();
+		valuesr=plato_restaurante.values();
+		List<Integer> values1=new ArrayList(valuesr);
+		List<String> keys1=new ArrayList(keysr);
+		List<Object> resultado=new ArrayList<>();
+		resultado.add(keys1);
+		resultado.add(values1);
+		
+		return resultado;
 	}
 	
-	public static void mostrarPlato_habitacion()
+	public static List<Object> mostrarPlato_habitacion()
 	{
-		for (int i=0; i<plato_habitacion.size(); i++)
-		{
-			keysh=plato_habitacion.keySet();
-			valuesh=plato_habitacion.values();
-			List<Integer>values1=new ArrayList(valuesh);
-			List<String>keys1=new ArrayList(keysh);
-		    keysfinalh = keys1;
-			System.out.println((i+1)+". "+keys1.get(i)+ " "+ values1.get(i));
-		}	
+		keysh=plato_habitacion.keySet();
+		valuesh=plato_habitacion.values();
+		List<Integer>values1=new ArrayList(valuesh);
+		List<String>keys1=new ArrayList(keysh);
+		List<Object> resultado=new ArrayList<>();
+		resultado.add(keys1);
+		resultado.add(values1);
+		return resultado;
 	}
 	
 	public static String asociarNumeroRH(int numero)
